@@ -1,0 +1,205 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login_page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+
+</head>
+
+<body>
+
+<section class = 'heading'>
+    <form action = "main_page" method = "post">
+        {% csrf_token %}
+        <button class = "insta-book"><h1 style = "font-size:124px;text-align:center;margin:17px;">INSTA BOOK</h1></button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+
+    <hr style = "height:2px;width:100%;background-color:black;margin-top:0px;">
+
+
+			{% if user_details0 %}
+			     <img src="{{ user_details0.U_main_pic.url }}" class = 'profile-pic'>
+			{% else %}
+			     <img src="{% static 'main/img.png' %}" class = 'profile-pic'>
+		    {% endif %}
+
+    <form action = "your_profile" method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "button1">Your Profile</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+
+    <form action = "register">
+        <button onclick = "submit" class = "button">Sign-UP</button>
+    </form>
+
+    <form action = 'register_login'>
+        <button onclick = "submit" class = "button">LOG-OUT</button>
+    </form>
+
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+
+        <h2 style = "text-align:center;font-size:48px;margin-top:-5px;">{{ user_details1.first_name}}.{{ user_details1.last_name }}</h2>
+
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+
+
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-fests' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button">FESTS</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-clubs' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">CLUBS</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-sports' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">SPORTS</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-acedemic' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">ACADEMIC</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'all_chatting' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">CHATTING</button>
+            <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+
+
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+
+
+</section>
+
+
+
+
+
+<h2 style = "font-size:40px;text-align:center;margin-top:4px;">GROUP CHATTINGS</h2>
+
+
+    <form action = "chatting" method = 'post'>
+        {% csrf_token %}
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+<button class = "posts1">
+    <h2 class = "E_NAME">..WITH ALL FACULTY ADVAISER'S..</h2>
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+    <img src="{% static 'chatting.jpg' %}" class = 'E_PICTURE'>
+    <section class = 'E_DES'>
+        <h3>DES:</h3>
+        <p> YOU CAN CHAT WITH ALL THE FACULTY ADVAISER'S AND CAN DISCUSS IF U HAVE ANY QUARIES</p>
+        <p style = "font-size:15px;"></p>
+    </section>
+
+</button>
+    </form>
+
+
+
+    <form action = "chatting" method = 'post'>
+        {% csrf_token %}
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+<button class = "posts1">
+    <h2 class = "E_NAME">..WITH CSE GROUP..</h2>
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+    <img src="{% static 'chatting.jpg' %}" class = 'E_PICTURE'>
+    <section class = 'E_DES'>
+        <h3>DES:</h3>
+        <p> YOU CAN CHAT WITH ALL THE CSE BRANCH STUDENTS AND CAN DISCUSS IF U HAVE ANY QUARIES</p>
+        <p style = "font-size:15px;"></p>
+    </section>
+
+</button>
+    </form>
+
+
+
+    <form action = "chatting" method = 'post'>
+        {% csrf_token %}
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+<button class = "posts1">
+    <h2 class = "E_NAME">..WITH ECE GROUP..</h2>
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+    <img src="{% static 'chatting.jpg' %}" class = 'E_PICTURE'>
+    <section class = 'E_DES'>
+        <h3>DES:</h3>
+        <p> YOU CAN CHAT WITH ALL THE ECE BRANCH STUDENTS AND CAN DISCUSS IF U HAVE ANY QUARIES</p>
+        <p style = "font-size:15px;"></p>
+    </section>
+
+</button>
+    </form>
+
+
+
+    <form action = "chatting" method = 'post'>
+        {% csrf_token %}
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+<button class = "posts1">
+    <h2 class = "E_NAME">..WITH CLUB MANAGEMENT..</h2>
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+    <img src="{% static 'chatting.jpg' %}" class = 'E_PICTURE'>
+    <section class = 'E_DES'>
+        <h3>DES:</h3>
+        <p> YOU CAN CHAT WITH ALL THE CLUB MEMBERS  AND CAN DISCUSS IF U HAVE ANY QUARIES</p>
+        <p style = "font-size:15px;"></p>
+    </section>
+
+</button>
+    </form>
+
+
+    <form action = "chatting" method = 'post'>
+        {% csrf_token %}
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+<button class = "posts1">
+    <h2 class = "E_NAME">..WITH SPORTS MANAGEMENT..</h2>
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+    <img src="{% static 'chatting.jpg' %}" class = 'E_PICTURE'>
+    <section class = 'E_DES'>
+        <h3>DES:</h3>
+        <p> YOU CAN CHAT WITH ALL THE SPORTS MANAGEMENT STUDENTS AND CAN DISCUSS IF U HAVE ANY QUARIES</p>
+        <p style = "font-size:15px;"></p>
+    </section>
+
+</button>
+    </form>
+
+
+    <form action = "chatting" method = 'post'>
+        {% csrf_token %}
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+<button class = "posts1">
+    <h2 class = "E_NAME">..WITH FEST'S MANAGEMENT..</h2>
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+    <img src="{% static 'chatting.jpg' %}" class = 'E_PICTURE'>
+    <section class = 'E_DES'>
+        <h3>DES:</h3>
+        <p> YOU CAN CHAT WITH ALL THE FEST'S MANAGEMENT AND CAN DISCUSS IF U HAVE ANY QUARIES</p>
+        <p style = "font-size:15px;"></p>
+    </section>
+
+</button>
+    </form>
+
+
+</body>
+</html>

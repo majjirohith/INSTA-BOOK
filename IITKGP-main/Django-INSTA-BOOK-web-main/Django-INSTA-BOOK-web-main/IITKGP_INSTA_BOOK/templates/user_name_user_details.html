@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login_page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+
+</head>
+
+<body>
+
+<section class = 'heading'>
+    <form action = "main_page" method = "post">
+        {% csrf_token %}
+        <button class = "insta-book"><h1 style = "font-size:124px;text-align:center;margin:17px;">INSTA BOOK</h1></button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+
+    <hr style = "height:2px;width:100%;background-color:black;margin-top:0px;">
+
+
+			{% if user_details0 %}
+			     <img src="{{ user_details0.U_main_pic.url }}" class = 'profile-pic'>
+			{% else %}
+			     <img src="{% static 'main/img.png' %}" class = 'profile-pic'>
+		    {% endif %}
+
+    <form action = "your_profile" method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "button1">Your Profile</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+
+    <form action = "register">
+        <button onclick = "submit" class = "button">Sign-UP</button>
+    </form>
+
+    <form action = 'register_login'>
+        <button onclick = "submit" class = "button">LOG-OUT</button>
+    </form>
+
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+
+        <h2 style = "text-align:center;font-size:48px;margin-top:-5px;">{{ user_details1.first_name}}.{{ user_details1.last_name }}</h2>
+
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+
+
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-fests' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button">FESTS</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-clubs' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">CLUBS</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-sports' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">SPORTS</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-acedemic' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">ACADEMIC</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'all_chatting' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">CHATTING</button>
+            <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+
+
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+
+
+</section>
+
+<hr style = "background-color:yellow;height:1px;width:80%">
+    <h2 style = "text-align:center;font-size:40px;margin-top:-12px">{{ user_details2.u_name }}</h2>
+    {% if user_details2 %}
+    <img src="{{ user_details2.U_main_pic.url }}" class = "profile-pic" style = "margin-left:40%;">
+    {% else %}
+    <img src="{% static 'main/img.png' %}" class = "profile-pic" style = "margin-left:43%;">
+    {% endif %}
+<hr style = "background-color:yellow;height:1px;width:80%">
+
+{% for i in dests %}
+
+<section class = "posts" style = "margin-top:20px">
+
+    {% if user_details2 %}
+    <img src="{{ user_details2.U_main_pic.url }}" class = 'post_profile'>
+    {% else %}
+    <img src="{% static 'main/img.png' %}" class = 'post_profile'>
+    {% endif %}
+
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;margin-top:-5px;">
+
+    <h4 class = 'post_user_name'>{{ i.u_name}}  </h4>
+    <h4 class = "post_user_caption" style = "margin-top:7px;clear:left;margin-left:7%">{{ i.caption }}</h4>
+
+    <img src="{{ i.U_main_pic.url }}" class = "post_picture">
+
+    <form action="post_likes" method = "post">
+        {% csrf_token %}
+        <h2 style = "margin-left:5%;float:left;clear:left;margin-top:39px;">LIKES:</h2>
+        <input type = 'text' name = 'advance1' value = '{{ i.u_name }}' style = "height:1px;width:1px;opacity:0.01">
+        <input type = 'text' name = 'advance2' value = '{{ user_details1.username }}' style = "height:1px;width:1px;opacity:0.01">
+        <button class = "comment_button" ><img src = "{% static 'main/likes.jpg' %}" style = "height:45px;width:100px;"></button>
+        <h2 style = "margin-left:1%;float:left;margin-top:39px;">{{ i.comments|slice:"0:3:1" }}</h2>
+    </form>
+
+    <p class = "comment_count">comments:{{ i.comments|slice:"3:6:1" }}</p>
+
+    <form action="view_comments" method = "post">
+        {% csrf_token %}
+        <button class = 'view_comment'>View comments</button>
+        <input type = 'text' name = 'advance1' value = '{{ i.u_name }}' style = "height:1px;width:1px;opacity:0.01">
+        <input type = 'text' name = 'advance0' value = '{{ user_details1.username }}' style = "height:1px;width:1px;opacity:0.01">
+    </form>
+
+</section>
+
+    <hr style = "height:2px;width:100%;background-color:black;margin-top:19px;">
+
+{% endfor %}
+
+    <section class = "ending">
+		<h1 style = "margin-left:40%;color:white;opacity:0.01;">DES: ............. </h1>
+		<h1 style = "margin-left:40%;color:white;opacity:0.01;">....</h1>
+		<h1 style = "margin-left:37%;color:white;opacity:0.4;opacity:0.12;">Update Your Details EveryDay</h1>
+	</section>
+
+</body>
+</html>

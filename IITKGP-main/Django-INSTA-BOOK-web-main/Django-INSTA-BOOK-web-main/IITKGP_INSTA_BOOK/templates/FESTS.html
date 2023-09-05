@@ -1,0 +1,212 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login_page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+
+</head>
+
+<body>
+
+<section class = 'heading'>
+    <form action = "main_page" method = "post">
+        {% csrf_token %}
+        <button class = "insta-book"><h1 style = "font-size:124px;text-align:center;margin:17px;">INSTA BOOK</h1></button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+
+    <hr style = "height:2px;width:100%;background-color:black;margin-top:0px;">
+
+
+			{% if user_details0 %}
+			     <img src="{{ user_details0.U_main_pic.url }}" class = 'profile-pic'>
+			{% else %}
+			     <img src="{% static 'main/img.png' %}" class = 'profile-pic'>
+		    {% endif %}
+
+    <form action = "your_profile" method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "button1">Your Profile</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+
+    <form action = "register">
+        <button onclick = "submit" class = "button">Sign-UP</button>
+    </form>
+
+    <form action = 'register_login'>
+        <button onclick = "submit" class = "button">LOG-OUT</button>
+    </form>
+
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+
+        <h2 style = "text-align:center;font-size:48px;margin-top:-5px;">{{ user_details1.first_name}}.{{ user_details1.last_name }}</h2>
+
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+
+
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-fests' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button">FESTS</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-clubs' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">CLUBS</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-sports' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">SPORTS</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-acedemic' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">ACADEMIC</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'all_chatting' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">CHATTING</button>
+            <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+
+
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+
+
+</section>
+
+
+
+
+
+<h2 style = "font-size:40px;text-align:center;margin-top:4px;">IIT KHARAGPUR FEST'S</h2>
+
+    <form action = "odyssey" method = 'post'>
+        {% csrf_token %}
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+<button class = "posts1">
+    <h2 class = "E_NAME">..RAGAM..</h2>
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+    <img src="{% static 'fests/ragam-profile.jpg' %}" class = 'E_PICTURE'>
+    <section class = 'E_DES'>
+        <h3>DES:</h3>
+        <p>this event was started from year 2000, it was established by R.V.UDAY KRISHNA, at the time of may based on inductions the management will be selected,
+            the main theme of this event is to keep a race between all the branches of our iitkgp, we will give final score and winner of our iit kharagpur        </p>
+        <p style = "font-size:15px;"></p>
+    </section>
+
+    <section class = "E_RANK">
+        <h3> EVENT_RANK:</h3>
+        <img src="{% static 'fests/event_number.jpg' %}" style = "height:60px;width:80px;margin-left:25%;border-radius:3px;border:2px solid black;">
+    </section>
+</button>
+    </form>
+
+
+    <form action = "odyssey" method = 'post'>
+        {% csrf_token %}
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+<button class = "posts1">
+    <h2 class = "E_NAME">..TATHVA..</h2>
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+    <img src="{% static 'fests/tathva-profile.jpg' %}" class = 'E_PICTURE'>
+    <section class = 'E_DES'>
+        <h3>DES:</h3>
+        <p>this event was started from year 1992, it was established by R.V.UDAY KRISHNA, at the time of may based on inductions the management will be selected,
+            the main theme of this event is to keep a race between all the branches of our iitkgp, we will give final score and winner of our iit kharagpur        </p>
+        <p style = "font-size:15px;"></p>
+    </section>
+
+    <section class = "E_RANK">
+        <h3> EVENT_RANK:</h3>
+        <img src="{% static 'fests/event_number.jpg' %}" style = "height:60px;width:80px;margin-left:25%;border-radius:3px;border:2px solid black;">
+    </section>
+</button>
+    </form>
+
+
+
+    <form action = "odyssey" method = 'post'>
+        {% csrf_token %}
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+<button class = "posts1">
+    <h2 class = "E_NAME">..ODYSSEY..</h2>
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+    <img src="{% static 'fests/odyssey all.jpeg' %}" class = 'E_PICTURE'>
+    <section class = 'E_DES'>
+        <h3>DES:</h3>
+        <p>this event was started from year 2004, it was established by R.V.UDAY KRISHNA, at the time of may based on  inductions the management will be selected,
+            the main theme of this event is to keep a race between all the branches of our iitkgp, we will give final score and winner of our iit kharagpur</p>
+        <p style = "font-size:15px;"></p>
+    </section>
+
+    <section class = "E_RANK">
+        <h3> EVENT_RANK:</h3>
+        <img src="{% static 'fests/event_number.jpg' %}" style = "height:60px;width:80px;margin-left:25%;border-radius:3px;border:2px solid black;">
+    </section>
+</button>
+    </form>
+
+
+
+    <form action = "odyssey" method = 'post'>
+        {% csrf_token %}
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+<button class = "posts1">
+    <h2 class = "E_NAME">..PONGAL..</h2>
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+    <img src="{% static 'fests/pongal-profile.jpg' %}" class = 'E_PICTURE'>
+    <section class = 'E_DES'>
+        <h3>DES:</h3>
+        <p>this event was started from year 2010, it was established by R.V.UDAY KRISHNA, at the time of may based inductions the management will be selected,
+            the main theme of this event is to keep a race between all the branches of our iitkgp, we will give final score and winner of our iit kharagpur        </p>
+        <p style = "font-size:15px;"></p>
+    </section>
+
+    <section class = "E_RANK">
+        <h3> EVENT_RANK:</h3>
+        <img src="{% static 'fests/event_number.jpg' %}" style = "height:60px;width:80px;margin-left:25%;border-radius:3px;border:2px solid black;">
+    </section>
+</button>
+    </form>
+
+
+    <form action = "odyssey" method = 'post'>
+        {% csrf_token %}
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+<button class = "posts1">
+    <h2 class = "E_NAME">..OTHERS..</h2>
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+    <img src="{% static 'fests/odyssey all.jpeg' %}" class = 'E_PICTURE'>
+    <section class = 'E_DES'>
+        <h3>DES:</h3>
+        <p>this event was conducted by the manager of iitkgp 4 rth year students which are selected by the induction process, the main theme of this event is to keep a race between all the branches of our iitkgp, we will give final score and winner of our iit kharagpur
+        </p>
+        <p style = "font-size:15px;"></p>
+    </section>
+
+    <section class = "E_RANK">
+        <h3> EVENT_RANK:</h3>
+        <img src="{% static 'fests/event_number.jpg' %}" style = "height:60px;width:80px;margin-left:25%;border-radius:3px;border:2px solid black;">
+    </section>
+</button>
+    </form>
+
+
+</body>
+</html>
+

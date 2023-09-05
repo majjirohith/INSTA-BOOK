@@ -1,0 +1,219 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login_page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+
+    <style>
+    .E_post_picture {
+            float:left;
+            height:835px;
+            margin-left:2%;
+            width:96%;
+            float:left;
+            margin-top:2px;
+            border:3px solid black;
+            border-radius:15px;
+}
+     .posts1{
+            float:left;
+            width:98%;
+            background-color:orange;
+            height:1350px;
+            background-color:orange;
+            margin-left:1%;
+            border-radius:15px;
+            margin-top:10px;
+            opacity:0.95;
+            border:2px solid black;
+        }
+        .f_b_infor{
+            background-color:orange;
+            width:100%;
+            height:940px;
+            clear:left;
+            border-radius:5px;
+            border:4px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+<section class = 'heading'>
+    <form action = "main_page" method = "post">
+        {% csrf_token %}
+        <button class = "insta-book"><h1 style = "font-size:124px;text-align:center;margin:17px;">INSTA BOOK</h1></button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+
+    <hr style = "height:2px;width:100%;background-color:black;margin-top:0px;">
+
+			{% if user_details0 %}
+			     <img src="{{ user_details0.U_main_pic.url }}" class = 'profile-pic'>
+			{% else %}
+			     <img src="{% static 'main/img.png' %}" class = 'profile-pic'>
+		    {% endif %}
+
+    <form action = "your_profile" method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "button1">Your Profile</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+    <form action = "register">
+        <button onclick = "submit" class = "button">Sign-UP</button>
+    </form>
+    <form action = 'register_login'>
+        <button onclick = "submit" class = "button">LOG-OUT</button>
+    </form>
+
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+        <h2 style = "text-align:center;font-size:48px;margin-top:-5px;">{{ user_details1.first_name}}.{{ user_details1.last_name }}</h2>
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+
+
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-fests' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button">FESTS</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-clubs' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">CLUBS</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-sports' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">SPORTS</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-acedemic' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">ACADEMIC</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'all_chatting' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">CHATTING</button>
+            <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+</section>
+
+
+<h1 style = "font-size:45px;text-align:center;margin-top:10px;clear:left">LAST YEAR - 2022</h1>
+<img src = "{% static 'fests/odyssey all.jpeg' %}" style = "float:left;width:100%;height:650px;border-radius:8px;">
+<h1 style = "margin-top:-120px;float:left;margin-left:200px;color:white;font-size:85px; ">...odyssey...</h1>
+
+<hr style = "height:2px;width:100%;background-color:black;clear:left;">
+
+
+<h1 style = "text-align:center;clear:left;">FEST MANAGEMENT</h1>
+<section class = "f_b_infor">
+    <h1 style = "text-align:center;clear:left;">BOARD MEMBERS:</h1>
+    <h2 style = "margin-left:2%">FEST ORGANIZER: </h2>
+           <p style = "margin-left:5%;font-size:25px;">R.V.UDAY KRISHNAA  CONTACT.N0:+918688938765, HE HAS BEEN WORKING FROM 2013(8 years of experience) </p>
+
+    <h2 style = "margin-left:2%">TEAM MEMBERS: </h2>
+        <p style = "margin-left:5%;font-size:24px;">:- 1)Abhisek Babu Nair, 3rd year EEC branch , joined in first year, Team Leader , participated in INTER-IITKGP twice</p>
+        <p style = "margin-left:5%;font-size:24px;">2)Atthul Babu Raj , 3rd year EEE branch , joined in first year, participated in INTER -IITKGP once </p>
+        <p style = "margin-left:5%;font-size:24px;">3)David Joy , 4rth year CSE branch , joined in second year, participated in INTER -IITKGP twice</p>
+        <p style = "margin-left:5%;font-size:24px;">4)Ashitosh Misra , 3rd year CIVIL branch , joined in first year,</p>
+        <p style = "margin-left:5%;font-size:24px;">5)Leo Jolly , 3rd year ECE branch , joined in first year, participated in INTER -IITKGP</p>
+        <p style = "margin-left:5%;font-size:24px;">6)Arjun Murali ,3rd year CHEM branch , joined in first year, participated in INTER -IITKGP</p>
+        <p style = "margin-left:5%;font-size:24px;">7)RAHUL ,4 rth year MECH branch , joined in first year,</p>
+        <p style = "margin-left:5%;font-size:24px;">8)Amith Kumar ,2rd year CSE branch , joined in first year, participated in INTER -IITKGP</p>
+        <p style = "margin-left:5%;font-size:24px;">9) Vivek raaju, 2rd year ECE branch , joined in first year, participated in INTER -IITKGP</p>
+
+</section>
+
+
+<h1 style = "text-align:center;clear:left;">COLLECTION OF BRANCH IMAGES</h1>
+<section class  = 'posts1'>
+    <img src="{% static 'fests/odassay- raj.jpeg' %}" style ="float:left;margin-left:10%;height:66px;width:65px;margin-top:20px">
+    <h2 style = "float:left;margin-left:15%;font-size:40px;">..ECE..(WINNERS)</h2>
+    <hr style = "background-color:black;height:2px;clear:left;">
+    <h3 style = "margin-left:2%;font-size:28px;">SCORE:3294</h3>
+    <h3 style = "margin-left:2%;font-size:28px;">RANK: 1 ( WINNER) </h3>
+    <h3 style = "text-align:center;font-size:25px;">PICTURES OF ODESSEY EVENT FROM ECE BRANCH</h3>
+
+    <section style = "overflow:auto;background-color:orange;height:960px;width:99%;border:3px solid black;">
+        <h3 style = "margin-left:2%;font-size:25px;clear:left;margin-top:30px;float:left">ON-Rajputh :</h3>
+        <img src="{% static 'fests/odassay- raj.jpeg' %}" class = "E_post_picture">
+
+        <h3 style = "margin-left:2%;font-size:30px;clear:left;margin-top:50px;float:left">Before B-Hostel :</h3>
+        <img src="{% static 'fests/odessay B.jpeg' %}" class = "E_post_picture">
+
+        <h3 style = "margin-left:2%;font-size:30px;clear:left;margin-top:50px;float:left">Before ATM-Circle :</h3>
+        <img src="{% static 'fests/odessay -ATM.jpeg' %}" class = "E_post_picture">
+
+        <h3 style = "margin-left:2%;font-size:30px;clear:left;margin-top:50px;float:left">Inside ELHC : ECE</h3>
+        <img src="{% static 'fests/odessay -elhc.jpeg' %}" class = "E_post_picture">
+    </section>
+
+</section>
+
+<hr style = "height:2px;width:100%;background-color:black;clear:left;margin-top:10px;">
+
+<section class  = 'posts1'>
+    <img src="{% static 'fests/odassay- raj.jpeg' %}" style ="float:left;margin-left:10%;height:66px;width:65px;margin-top:20px">
+    <h2 style = "float:left;margin-left:15%;font-size:40px;">..CSE..(RUNNERS)</h2>
+    <hr style = "background-color:black;height:2px;clear:left;">
+    <h3 style = "margin-left:2%;font-size:28px;">SCORE:2294</h3>
+    <h3 style = "margin-left:2%;font-size:28px;">RANK: 2 (RUNNER) </h3>
+    <h3 style = "text-align:center;font-size:25px;">PICTURES OF ODESSEY EVENT FROM CSE BRANCH</h3>
+
+    <section style = "overflow:auto;background-color:orange;height:1000px;width:100%;border:3px solid black;">
+        <h4 style = "margin-left:2%;font-size:19px;clear:left;margin-top:30px;float:left">Before B-Hostel :</h4>
+        <img src="" class = "E_post_picture">
+
+        <h4 style = "margin-left:2%;font-size:19px;clear:left;margin-top:50px;float:left">Before ATM-Circle :</h4>
+        <img src="" class = "E_post_picture">
+
+        <h4 style = "margin-left:2%;font-size:19px;clear:left;margin-top:50px;float:left">ON-Rajputh :</h4>
+        <img src="" class = "E_post_picture">
+
+        <h4 style = "margin-left:2%;font-size:19px;clear:left;margin-top:50px;float:left">Inside ELHC :</h4>
+        <img src="" class = "E_post_picture">
+    </section>
+</section>
+
+<hr style = "height:2px;width:100%;background-color:black;clear:left;margin-top:10px;">
+
+<section class  = 'posts1'>
+    <img src="{% static 'odassay- raj.jpeg' %}" style ="float:left;margin-left:10%;height:66px;width:65px;margin-top:20px">
+    <h2 style = "float:left;margin-left:15%;font-size:40px;">..CHEM..</h2>
+    <hr style = "background-color:black;height:2px;clear:left;">
+    <h3 style = "margin-left:2%;font-size:28px;">SCORE:1294</h3>
+    <h3 style = "margin-left:2%;font-size:28px;">RANK: 3 </h3>
+    <h3 style = "text-align:center;font-size:25px;">PICTURES OF ODESSEY EVENT FROM CHEM BRANCH</h3>
+
+    <section style = "overflow:auto;background-color:orange;height:1000px;width:100%;border:3px solid black;">
+        <h4 style = "margin-left:2%;font-size:19px;clear:left;margin-top:30px;float:left">Before B-Hostel :</h4>
+        <img src="" class = "E_post_picture">
+
+        <h4 style = "margin-left:2%;font-size:19px;clear:left;margin-top:50px;float:left">Before ATM-Circle :</h4>
+        <img src="" class = "E_post_picture">
+
+        <h4 style = "margin-left:2%;font-size:19px;clear:left;margin-top:50px;float:left">ON-Rajputh :</h4>
+        <img src="" class = "E_post_picture">
+
+        <h4 style = "margin-left:2%;font-size:19px;clear:left;margin-top:50px;float:left">Inside ELHC :</h4>
+        <img src="" class = "E_post_picture">
+    </section>
+</section>
+
+</body>
+</html>

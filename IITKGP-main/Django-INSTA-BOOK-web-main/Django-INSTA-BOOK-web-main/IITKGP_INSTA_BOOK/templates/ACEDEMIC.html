@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login_page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+    <style>
+                .posts1{
+            float:left;
+            width:98%;
+            background-color:orange;
+            height:1150px;
+            background-color:orange;
+            margin-left:1%;
+            border-radius:25px;
+            margin-top:10px;
+            opacity:0.95;
+            overflow:auto;
+            border:2px solid blue;
+        }
+                .posts{
+            float:left;
+            width:98%;
+            background-color:orange;
+            height:100px;
+            background-color:orange;
+            margin-left:1%;
+            border-radius:25px;
+            margin-top:10px;
+            opacity:0.95;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<section class = 'heading'>
+    <form action = "main_page" method = "post">
+        {% csrf_token %}
+        <button class = "insta-book"><h1 style = "font-size:124px;text-align:center;margin:17px;">INSTA BOOK</h1></button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+
+    <hr style = "height:2px;width:100%;background-color:black;margin-top:0px;">
+
+
+			{% if user_details0 %}
+			     <img src="{{ user_details0.U_main_pic.url }}" class = 'profile-pic'>
+			{% else %}
+			     <img src="{% static 'main/img.png' %}" class = 'profile-pic'>
+		    {% endif %}
+
+    <form action = "your_profile" method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "button1">Your Profile</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+
+    <form action = "register">
+        <button onclick = "submit" class = "button">Sign-UP</button>
+    </form>
+
+    <form action = 'register_login'>
+        <button onclick = "submit" class = "button">LOG-OUT</button>
+    </form>
+
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+
+        <h2 style = "text-align:center;font-size:48px;margin-top:-5px;">{{ user_details1.first_name}}.{{ user_details1.last_name }}</h2>
+
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+
+
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-fests' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button">FESTS</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-clubs' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">CLUBS</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-sports' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">SPORTS</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-acedemic' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">ACADEMIC</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'all_chatting' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">CHATTING</button>
+            <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+
+
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+
+
+</section>
+
+
+<h3 style = "font-size:30px;text-align:center;margin-top:10px;clear:left">YEAR - 2022</h3>
+
+<section class  = 'posts1'>
+
+    <h1 style = "text-align:center;">ACEDEMIC CALENDER</h1>
+    <img src="{% static 'aced_calender.jpeg' %}" style = "height:1000px;width:100%;">
+</section>
+
+
+    <section class = "posts">
+        <h1 style = "text-align:center;">CSE......B.TECH SYLLABUS</h1>
+    </section>
+
+    <section class = "posts">
+        <h1 style = "text-align:center;">ECE......B.TECH SYLLABUS</h1>
+    </section>
+
+    <section class = "posts">
+        <h1 style = "text-align:center;">EEE......B.TECH SYLLABUS</h1>
+    </section>
+
+    <section class = "posts">
+        <h1 style = "text-align:center;">MECH......B.TECH SYLLABUS</h1>
+    </section>
+
+    <section class = "posts">
+        <h1 style = "text-align:center;">CIVIL......B.TECH SYLLABUS</h1>
+    </section>
+
+    <section class = "posts">
+        <h1 style = "text-align:center;">CHEM......B.TECH SYLLABUS</h1>
+    </section>
+
+    <section class = "posts">
+        <h1 style = "text-align:center;">BIO-TECH......B.TECH SYLLABUS</h1>
+    </section>

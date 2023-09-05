@@ -1,0 +1,192 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>login/register</title>
+	<style type="text/css">
+
+body {
+  background-image:url("{% static '1567855.jpg' %}");
+}
+
+@media (min-width:300px) and (max-width:1030px) {
+
+		.heading {
+	            font-size:105px;
+	            margin-left:5%;
+	            width:90%;
+	            margin-top:-7px;
+	            text-align:center;
+	            color:white;
+	            background-color:blue;
+	            border-radius:30px;
+	            opacity:0.5;
+                }
+
+        .login {
+            margin-top:-1px;
+	        height:850px;
+	        width:85%;
+	        margin-left:7%;
+	        background-image:url("{% static 'final back.jpg' %}");
+	        opacity:0.75;
+	        border-radius:10px;
+	        float:left;
+	        border-right:8px solid black;
+	        border-bottom:8px solid black;
+        }
+
+
+        .button {
+ 	        height:65px;
+	        width:30%;
+	        border-radius:7px;
+	        background-color:green;
+	        color:white;
+	        text-align:center;
+	        font-size:35px;
+	        margin-left:34%;
+	        margin-top:10px;
+
+        }
+        .button:hover {
+ 	        height:55px;
+	        width:28%;
+	        border-radius:7px;
+	        background-color:#99ccff;
+	        color:black;
+	        text-align:center;
+	        font-size:35px;
+	        margin-left:34%;
+	        margin-top:10px;
+
+        }
+        .ending {
+	width:100%;
+	height:200px;
+	margin-top:90px;
+	background-color:black;
+	border-radius:20px;
+
+
+} }
+
+@media (min-width:1031px){
+		.heading {
+	            font-size:105px;
+	            margin-left:5%;
+	            width:90%;
+	            margin-top:-7px;
+	            text-align:center;
+	            color:white;
+	            background-color:blue;
+	            border-radius:30px;
+	            opacity:0.5;
+                }
+
+        .login {
+            margin-top:-1px;
+	        height:700px;
+	        width:60%;
+	        margin-left:20%;
+	        background-image:url("{% static 'final back.jpg' %}");
+	        opacity:0.75;
+	        border-radius:10px;
+	        float:left;
+	        border-right:8px solid black;
+	        border-bottom:8px solid black;
+        }
+
+
+        .button {
+ 	        height:50px;
+	        width:35%;
+	        background-color:green;
+	        color:white;
+	        text-align:center;
+	        font-size:35px;
+	        margin-left:34%;
+	        margin-top:10px;
+        }
+        .ending {
+	width:100%;
+	height:200px;
+	background-color:black;
+	border-radius:20px;
+
+}
+}
+		
+	</style>
+
+</head>
+
+<script src="https://unpkg.com/htmx.org@1.6.0"></script>
+
+<body>
+
+	<h1 class = "heading">INSTA BOOK</h1>
+
+
+	<div>
+		{% for message in messages %}
+		   <h3 style = "text-align:center;color:black;font-size:30px">{{ message }}</h3>
+		{% endfor %}
+	</div>
+
+
+	<section style = "height:300px;border-radius:15px;margin-left:36%;">
+		<img src = "{% static 'nobitha.png' %}" style = "height:320px;width:300px;border-radius:10px;">
+	</section>
+
+
+	<section class = "login">
+		<form action="main_page_L" method = "post">
+			{% csrf_token %}
+
+        <h1 style = "text-align:center;">Please Login Here..(if you have an account)</h1>
+        <h2 style = "margin-left:10%;margin-top:30px;">User Name</h2>
+        <p style = "text-align:center;margin-top:30px;"><input type="text" name = "input1" placeholder="ex : Srinivas357" style = "text-align:center;font-size:30px; border-radius:5px;height:60px;width:70%;"></p>
+        <h2 style = "margin-left:10%;margin-top:30px">PassWord</h2>
+        <p style = "text-align:center;margin-top:30px;"><input type="password" placeholder="ex : @1234" name = "input2" style = "text-align:center;font-size:40px; border-radius:5px;height:60px;width:70%;"></p>
+
+            <button class = "button" onclick = "submit">login</button>
+		</form>
+
+		 <h2 style = "margin-left:34%;margin-top:70px;">Create a new account</h2>
+	      <form action = "register">
+		        <button class = "button" onclick = "submit" style = "height:85px;">Create an Account</button>
+	      </form>
+
+    </section>
+
+
+
+	<hr style = "height:2px;width:80%;background-color:yellow;margin-top:850px;">
+
+	<a href = "https://github.com/Vidyasagar5566/IITKGP-INSTA-BOOK" style = "margin-left:41%;"><h1 style = "margin-left:41%;">Github Link</h1></a>
+
+
+
+	<section class = "ending">
+
+
+		<h1 style = "margin-left:40%;color:white;opacity:0.01;">DES: ............. </h1>
+
+		<h1 style = "margin-left:40%;color:white;opacity:0.01;">....</h1>
+		<h1 style = "margin-left:37%;color:white;opacity:0.4;opacity:0.12;">Update Your Details EveryDay</h1>
+
+	</section>
+
+</body>
+
+<footer>
+<script>
+	if ( window.history.replaceState ) {
+	window.history.replaceState( null, null, window.location.href );
+	}
+</script>
+	</footer>
+
+</html>

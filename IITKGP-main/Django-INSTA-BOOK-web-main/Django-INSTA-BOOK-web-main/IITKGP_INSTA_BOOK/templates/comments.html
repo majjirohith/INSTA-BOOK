@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login_page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+    <style>
+        .comment_box{
+        float:left;
+        clear:left;
+        background-color:white;
+        margin-left:15%;
+        width:70%;
+        height:550px;
+        border-radius:10px;
+        overflow:auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<section class = 'heading'>
+    <form action = "main_page" method = "post">
+        {% csrf_token %}
+        <button class = "insta-book"><h1 style = "font-size:124px;text-align:center;margin:17px;">INSTA BOOK</h1></button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+
+    <hr style = "height:2px;width:100%;background-color:black;margin-top:0px;">
+
+
+			{% if user_details0 %}
+			     <img src="{{ user_details0.U_main_pic.url }}" class = 'profile-pic'>
+			{% else %}
+			     <img src="{% static 'main/img.png' %}" class = 'profile-pic'>
+		    {% endif %}
+
+    <form action = "your_profile" method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "button1">Your Profile</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+
+    <form action = "register">
+        <button onclick = "submit" class = "button">Sign-UP</button>
+    </form>
+
+    <form action = 'register_login'>
+        <button onclick = "submit" class = "button">LOG-OUT</button>
+    </form>
+
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+
+        <h2 style = "text-align:center;font-size:48px;margin-top:-5px;">{{ user_details1.first_name}}.{{ user_details1.last_name }}</h2>
+
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+
+
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-fests' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button">FESTS</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-clubs' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">CLUBS</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-sports' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">SPORTS</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'iitkgp-acedemic' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">ACADEMIC</button>
+        <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+<section style = "float:left;margin-left:30px;margin-top:10px;">
+    <form action = 'all_chatting' method = "post">
+        {% csrf_token %}
+        <button onclick = "submit" class = "clz_button" style = "margin-top:0px;">CHATTING</button>
+            <input name = 'input1' value = "{{ user_details1.username }}" style = "height:1px;width:1px;opacity:0.01;">
+    </form>
+</section>
+
+
+    <hr style = "height:2px;width:100%;background-color:black;clear:left;">
+
+
+</section>
+
+
+
+<section class = "posts" style = "margin-top:35px;height:900px;">
+
+    {% if user_details2 %}
+          <img src="{{ user_details2.U_main_pic.url }}" class = 'post_profile'>
+    {% else %}
+          <img src="{% static 'main/img.png' %}" class = 'post_profile'>
+    {% endif %}
+
+    <h4 class = 'post_user_name'>{{ a }} : </h4>
+    <h4 class = "post_user_caption">{{ b }}</h4>
+
+    <section class = "comment_box">
+
+	      {% for j in comment %}
+		          <h2 style = "font-size:28px;margin-left:10px;">{{ j }}</h2>
+	      {% endfor %}
+
+	</section>
+
+    <form action="post_comments" method = "post">
+        {% csrf_token %}
+        <input type="text" name="advance0" class = "post_comment" placeholder="ex:beautiful">
+        <input type = 'text' name = 'advance1' value = '{{ a }}' style = "height:1px;width:1px;opacity:0.01">
+        <input type = 'text' name = 'advance2' value = '{{ user_details1.username }}' style = "height:1px;width:1px;opacity:0.01">
+        <button class = 'comment_button'>post comment</button>
+    </form>
+
+</section>
+
+
+
+
+    <section class = "ending">
+		<h1 style = "margin-left:40%;color:white;opacity:0.01;">DES: ............. </h1>
+		<h1 style = "margin-left:40%;color:white;opacity:0.01;">....</h1>
+		<h1 style = "margin-left:37%;color:white;opacity:0.4;opacity:0.12;">Update Your Details EveryDay</h1>
+	</section>
+
+</body>
+</html>

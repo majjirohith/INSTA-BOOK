@@ -1,0 +1,1 @@
+web: gunicorn NITC_INSTA_BOOK.wsgi:application --log-file -
